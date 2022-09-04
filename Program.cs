@@ -39,10 +39,43 @@ class MyNewClass
         System.Console.WriteLine(string.Join("  ", MyArr ));
         System.Console.WriteLine($"Сумма элементов на нечетных позициях {Summa}" );   
     }
+       public static void MyTask37()
+     {
+        // Найдите произведение пар чисел в одномерном массиве.
+        // Парой считаем первый и последний элемент, второй и предпоследний
+        // и т.д. Результат запишите в новом массиве
+        
+        System.Console.WriteLine("Задайте размер массива ");
+        int Len = int.Parse(Console.ReadLine());
+        int [] MyArr = new int [Len];
+        for (int i=0; i< MyArr.Length; i++)
+        {
+            MyArr[i] = new Random().Next(-9,10);
+        }
+
+        Console.WriteLine(String.Join(" ", MyArr));
+       
+        int Len2;
+        if (MyArr.Length % 2 == 0) Len2 = MyArr.Length/2;
+        else Len2=MyArr.Length/2+1;
+        
+        int [] NewArr =  new int[Len2];
+        
+        for (int i=0; i < MyArr.Length-i; i++)
+        {
+            if (i != MyArr.Length-1-i )  NewArr[i] = MyArr[i]*MyArr[MyArr.Length-1-i]; 
+            else NewArr[i] = MyArr[i];
+        } 
+        Console.WriteLine(String.Join(" ", NewArr));
+
+     }
+
+
     static void Main()
     {
        // MyTask34();
-        MyTask36();
+       // MyTask36();
+       MyTask37();
     }
     
 
