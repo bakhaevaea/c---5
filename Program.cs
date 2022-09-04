@@ -69,13 +69,43 @@ class MyNewClass
         Console.WriteLine(String.Join(" ", NewArr));
 
      }
+    public static void MyTask38()
+    {
+        // Задайте массив вещественных чисел. Найдите разницу между 
+        // максимальным и минимальным элементами массива
 
+        System.Console.WriteLine("Задайте размер массива ");
+        int Len = int.Parse(Console.ReadLine());
+        double [] MyArr = new double [Len];
+        //заполняем массив случайными вещественными числами
+        for (int i=0; i< MyArr.Length; i++)
+        {
+            MyArr[i] = Math.Round(new Random().NextDouble()*10, 2);
+        }
+        
+        //вывод массива
+        System.Console.WriteLine(string.Join("  ", MyArr));
+        
+        //поиск минимального и максимального элемента
+        double max=MyArr[0], min=MyArr[0];
+        for (int i=0; i< MyArr.Length; i++)
+        {
+            if (MyArr[i] > max) max = MyArr[i] ;
+            
+            if (MyArr[i] < min) min = MyArr[i];      
+        }
+
+        System.Console.WriteLine($"разница между мин. и макс. элементами  = {Math.Round(max - min, 2)}");
+
+        }
 
     static void Main()
     {
        // MyTask34();
        // MyTask36();
-       MyTask37();
+       // MyTask37();
+        MyTask38();
+
     }
     
 
